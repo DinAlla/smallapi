@@ -4,15 +4,18 @@ var bodyParser = require('body-parser');
 let todos = [
   {
       id: '0dd194e0e15278b18d2c71e45e880b39',
-      title: 'Todo 1'
+      title: 'Todo 1',
+      checked: false
   },
   {
       id: '927808d6813f4f5b8e9874c4d02652b7',
-      title: 'Todo 2'
+      title: 'Todo 2',
+      checked: true
   },
   {
       id: '9477f5ea5b163299e31085b6cf386e09',
-      title: 'Todo 3'
+      title: 'Todo 3',
+      checked: false
   }
 ];
 
@@ -39,7 +42,8 @@ app.get('/todos', function (req, res) {
 app.post('/todos', function (req, res) {
   var todo = {
     id: `${Date.now()}`,
-    title: req.body.title
+    title: req.body.title,
+    checked: req.body.checked
   }
   todos.push(todo);
   res.sendStatus(200);
