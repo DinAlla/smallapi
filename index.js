@@ -61,6 +61,7 @@ app.put('/todos/:id', function (req, res) {
     return todo.id === req.params.id
   });
   todo.title = req.body.title;
+  todo.checked = req.body.checked;
   res.sendStatus(200);
 });
 
