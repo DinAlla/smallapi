@@ -5,17 +5,17 @@ let todos = [
   {
       id: '0dd194e0e15278b18d2c71e45e880b39',
       title: 'Todo 1',
-      checked: false
+      status: 'TODO'
   },
   {
       id: '927808d6813f4f5b8e9874c4d02652b7',
       title: 'Todo 2',
-      checked: true
+      status: 'DONE'
   },
   {
       id: '9477f5ea5b163299e31085b6cf386e09',
       title: 'Todo 3',
-      checked: false
+      status: 'TODO'
   }
 ];
 
@@ -43,7 +43,7 @@ app.post('/todos', function (req, res) {
   var todo = {
     id: `${Date.now()}`,
     title: req.body.title,
-    checked: req.body.checked
+    status: req.body.checked
   }
   todos.push(todo);
   res.sendStatus(200);
@@ -61,7 +61,7 @@ app.put('/todos/:id', function (req, res) {
     return todo.id === req.params.id
   });
   todo.title = req.body.title;
-  todo.checked = req.body.checked;
+  todo.status = req.body.status;
   res.sendStatus(200);
 });
 
