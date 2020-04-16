@@ -47,7 +47,7 @@ app.post('/todos', function (req, res) {
     id: `${Date.now()}`,
     title: req.body.title,
     description: req.body.description,
-    status: req.body.checked
+    status: req.body.status
   }
   todos.push(todo);
   res.sendStatus(200);
